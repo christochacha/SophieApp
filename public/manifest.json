@@ -1,0 +1,15 @@
+{
+    "name": "Daily Love Notes",
+    "short_name": "Love Notes",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ff69b4",
+    "icons": [
+        {
+            "src": "icons/heart-clipart-lg.png",
+            "sizes": "1248x1280",
+            "type": "image/png"
+        }
+    ]
+}

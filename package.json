@@ -1,0 +1,25 @@
+{
+    "name": "daily-love-notes",
+    "version": "1.0.0",
+    "description": "A simple PWA for saving daily love notes using local storage.",
+    "main": "index.js",
+    "scripts": {
+        "start": "lite-server",
+        "build": "echo 'No build step required'",
+        "test": "echo 'No tests specified'"
+    },
+    "keywords": [
+        "love-notes",
+        "PWA",
+        "local-storage",
+        "web-app"
+    ],
+    "author": "Chris Chavez",
+    "license": "MIT",
+    "devDependencies": {
+        "lite-server": "^2.6.1"
+    },
+    "dependencies": {
+        "firebase": "^11.3.1"
+    }
+}
