@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #fafafa;
+}
+.login-container {
+    padding: 20px;
+    max-width: 400px;
+    margin: 40px auto;
+    text-align: center;
+}
+.header {
+    background: #ff69b4;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+.love-note {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    animation: fadeIn 0.5s ease-in;
+}
+.author {
+    color: #ff69b4;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+.date {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+.message {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+.new-note {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.input-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    padding: 1rem;
+}
+.modal-content {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 2rem auto;
+}
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+textarea {
+    height: 100px;
+    resize: vertical;
+}
+.button {
+    background: #ff69b4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.button:hover {
+    background: #ff4da6;
+}
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.button-group button {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.save-btn {
+    background: #ff69b4;
+    color: white;
+}
+.cancel-btn {
+    background: #f0f0f0;
+}

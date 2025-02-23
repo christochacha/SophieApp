@@ -1,0 +1,53 @@
+[debug] [2025-02-23T16:05:37.993Z] ----------------------------------------------------------------------
+[debug] [2025-02-23T16:05:37.995Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\awcha\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2025-02-23T16:05:37.996Z] CLI Version:   13.31.2
+[debug] [2025-02-23T16:05:37.996Z] Platform:      win32
+[debug] [2025-02-23T16:05:37.996Z] Node Version:  v20.12.0
+[debug] [2025-02-23T16:05:37.996Z] Time:          Sun Feb 23 2025 11:05:37 GMT-0500 (Eastern Standard Time)
+[debug] [2025-02-23T16:05:37.996Z] ----------------------------------------------------------------------
+[debug] 
+[warn] !  JSON error trying to load C:\Users\awcha\SophieApp\.firebaserc 
+[debug] [2025-02-23T16:05:38.204Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-02-23T16:05:38.204Z] > authorizing via signed-in user (cheez0108@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\awcha\SophieApp
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-02-23T16:05:51.762Z] Checked if tokens are valid: true, expires at: 1740329818740
+[debug] [2025-02-23T16:05:51.763Z] Checked if tokens are valid: true, expires at: 1740329818740
+[debug] [2025-02-23T16:05:51.764Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2025-02-23T16:05:52.047Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-02-23T16:05:52.047Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project love-notes-7bf82 (love-notes) 
+[info] 
+=== Hosting Setup
+[debug] [2025-02-23T16:05:54.635Z] Checked if tokens are valid: true, expires at: 1740329818740
+[debug] [2025-02-23T16:05:54.635Z] Checked if tokens are valid: true, expires at: 1740329818740
+[debug] [2025-02-23T16:05:54.635Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/love-notes-7bf82 [none]
+[debug] [2025-02-23T16:05:54.942Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/love-notes-7bf82 200
+[debug] [2025-02-23T16:05:54.942Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/love-notes-7bf82 {"projectId":"love-notes-7bf82","projectNumber":"386013489981","displayName":"love-notes","name":"projects/love-notes-7bf82","resources":{"hostingSite":"love-notes-7bf82"},"state":"ACTIVE","etag":"1_42f0aba4-2e4d-49eb-a178-0c7ff9194814"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[info] +  Wrote public/404.html 
+[debug] [2025-02-23T16:06:19.188Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/releases.json [none]
