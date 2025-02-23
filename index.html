@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Love Notes</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiRGFpbHkgTG92ZSBOb3RlcyIsInNob3J0X25hbWUiOiJMb3ZlIE5vdGVzIiwic3RhcnRfdXJsIjoiLyIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiNmZmZmZmYiLCJ0aGVtZV9jb2xvciI6IiNmZjY5YjQifQ==">
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: #ff69b4;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        .love-note {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            animation: fadeIn 0.5s ease-in;
+        }
+        .date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .message {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+        .new-note {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            background: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .input-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            padding: 1rem;
+        }
+        .modal-content {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin: 1rem 0;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .button-group {
+            display: flex;
+            gap: 1rem;
+        }
+        .button-group button {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .save-btn {
+            background: #ff69b4;
+            color: white;
+        }
+        .cancel-btn {
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Daily Love Notes</h1>
+    </div>
+    <div class="container" id="notesContainer">
+        <!-- Notes will be added here -->
+    </div>
+    <button class="new-note" onclick="showModal()">+</button>
+    <div class="input-modal" id="modal">
+        <div class="modal-content">
+            <h2>Write a Love Note</h2>
+            <textarea id="noteInput" placeholder="Write your message here..."></textarea>
+            <div class="button-group">
+                <button class="cancel-btn" onclick="hideModal()">Cancel</button>
+                <button class="save-btn" onclick="saveNote()">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize notes from localStorage
+        let notes = JSON.parse(localStorage.getItem('loveNotes') || '[]');
+        
+        // Display existing notes
+        function displayNotes() {
+            const container = document.getElementById('notesContainer');
+            container.innerHTML = '';
+            
+            notes.forEach(note => {
+                const noteElement = document.createElement('div');
+                noteElement.className = 'love-note';
+                noteElement.innerHTML = `
+                    <div class="date">${new Date(note.date).toLocaleDateString()}</div>
+                    <p class="message">${note.message}</p>
+                `;
+                container.prepend(noteElement);
+            });
+        }
+
+        // Show input modal
+        function showModal() {
+            document.getElementById('modal').style.display = 'block';
+            document.getElementById('noteInput').focus();
+        }
+
+        // Hide input modal
+        function hideModal() {
+            document.getElementById('modal').style.display = 'none';
+            document.getElementById('noteInput').value = '';
+        }
+
+        // Save new note
+        function saveNote() {
+            const message = document.getElementById('noteInput').value.trim();
+            if (message) {
+                const note = {
+                    date: new Date().toISOString(),
+                    message: message
+                };
+                notes.push(note);
+                localStorage.setItem('loveNotes', JSON.stringify(notes));
+                displayNotes();
+                hideModal();
+            }
+        }
+
+        // Initial display
+        displayNotes();
+
+        // Register service worker for PWA functionality
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('data:application/javascript;base64,c2VsZi5hZGRFdmVudExpc3RlbmVyKCdpbnN0YWxsJywgZXZlbnQgPT4ge30pOw==')
+                .then(registration => console.log('ServiceWorker registered'))
+                .catch(error => console.log('ServiceWorker error:', error));
+        }
+    </script>
+</body>
+</html>
